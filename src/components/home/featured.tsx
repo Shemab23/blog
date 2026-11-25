@@ -183,9 +183,9 @@ export const FeaturedBlogsSection = ({
                         <Image
                           src={blog.media.logoImage}
                           alt={`${blog.name} icon`}
-                          width={24}
-                          height={24}
-                          className="object-contain"
+                          width={200}
+                          height={200}
+                          className="w-24 h-auto"
                         />
                       ) : (
                         <span className="text-xs font-mono font-bold text-foreground">

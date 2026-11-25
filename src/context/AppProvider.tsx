@@ -8,6 +8,7 @@ import { MATERIAL_REGISTRY } from "@/data/MaterialRegistry";
 
 import "@/data/notes/PythonBasics";
 import "@/data/notes/GitInternals";
+import "@/data/notes/AiEngineeringFoundations";
 import "@/data/tutorials/pythonSetupWalkthorough";
 import "@/data/materials/cleanArchitectureNotes";
 
