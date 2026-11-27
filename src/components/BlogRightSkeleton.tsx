@@ -3,15 +3,19 @@
 import { AppContext } from "@/context/AppContext";
 import { useContext } from "react";
 
-export function PythonBasicsPage() {
+type props = {
+  targetSlug: string;
+};
+
+export function RightSideSkeleton({ targetSlug }: props) {
   const context = useContext(AppContext);
-  const blog = context?.blogs.find((b) => b.slug === "python-basics");
+  const blog = context?.blogs.find((b) => b.slug === targetSlug);
 
   if (!blog) return null;
 
   return (
     <article className="space-y-12">
-      {/* Header populated from BlogRegistry */}
+      {/* Article Header */}
       <header className="space-y-3 pb-6 border-b border-border">
         <div className="flex flex-wrap items-center gap-2 text-xs font-mono text-muted-foreground">
           {blog.version && (
@@ -33,7 +37,7 @@ export function PythonBasicsPage() {
         </p>
       </header>
 
-      {/* Render Chapters & Sub-Topics directly from blog.tableOfContents */}
+      {/* Chapters & Sub-Topics */}
       {blog.tableOfContents.map((topic) => (
         <section
           key={topic.id}

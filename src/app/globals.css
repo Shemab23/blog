@@ -106,39 +106,40 @@
 }
 
 /* =========================================================
-   3. BALANCED DARK MODE (Soft Warm Charcoal & Amber)
+   3. BALANCED DARK MODE (Comfortable Warm Slate & Soft Cream)
    ========================================================= */
 .dark {
-  /* Lift primary slightly in dark mode so #ba6e30 stays legible on dark surfaces */
-  --primary: oklch(from var(--brand-primary) 0.7 0.135 h);
-  --primary-foreground: oklch(from var(--brand-primary) 0.16 0.02 h);
+  /* Warm amber accent lifted for clear contrast without neon glare */
+  --primary: oklch(from var(--brand-primary) 0.74 0.13 h);
+  --primary-foreground: oklch(from var(--brand-primary) 0.18 0.02 h);
 
-  --accent: oklch(from var(--brand-accent) 0.32 0.035 h);
-  --accent-foreground: oklch(from var(--brand-accent) 0.94 0.02 h);
+  --accent: oklch(from var(--brand-accent) 0.36 0.04 h);
+  --accent-foreground: oklch(from var(--brand-accent) 0.92 0.02 h);
 
-  /* Soft charcoal background (0.205) with elevated cards (0.24) */
-  --background: oklch(from var(--brand-primary) 0.205 0.012 h);
-  --foreground: oklch(from var(--brand-primary) 0.935 0.008 h);
+  /* Lifted background (0.255) & cards (0.295) to eliminate harsh black crush */
+  --background: oklch(from var(--brand-primary) 0.255 0.011 h);
+  --foreground: oklch(from var(--brand-primary) 0.905 0.008 h);
 
-  --card: oklch(from var(--brand-primary) 0.24 0.015 h);
+  --card: oklch(from var(--brand-primary) 0.295 0.013 h);
   --card-foreground: var(--foreground);
 
-  --popover: oklch(from var(--brand-primary) 0.255 0.016 h);
+  --popover: oklch(from var(--brand-primary) 0.31 0.014 h);
   --popover-foreground: var(--foreground);
 
-  --secondary: oklch(from var(--brand-primary) 0.275 0.018 h);
+  --secondary: oklch(from var(--brand-primary) 0.33 0.015 h);
   --secondary-foreground: var(--foreground);
 
-  --muted: oklch(from var(--brand-primary) 0.26 0.015 h);
-  --muted-foreground: oklch(from var(--brand-primary) 0.72 0.015 h);
+  --muted: oklch(from var(--brand-primary) 0.31 0.013 h);
+  --muted-foreground: oklch(from var(--brand-primary) 0.76 0.014 h);
 
-  --border: oklch(from var(--brand-primary) 0.315 0.018 h);
-  --input: oklch(from var(--brand-primary) 0.315 0.018 h);
+  --border: oklch(from var(--brand-primary) 0.38 0.016 h);
+  --input: oklch(from var(--brand-primary) 0.38 0.016 h);
   --ring: var(--primary);
 
-  --destructive: oklch(0.68 0.19 25);
+  --destructive: oklch(0.7 0.18 25);
 
-  --sidebar: oklch(from var(--brand-primary) 0.185 0.011 h);
+  /* Slightly deeper sidebar (0.23) for clear visual separation from main reader */
+  --sidebar: oklch(from var(--brand-primary) 0.23 0.01 h);
   --sidebar-foreground: var(--foreground);
   --sidebar-primary: var(--primary);
   --sidebar-primary-foreground: var(--primary-foreground);
@@ -159,5 +160,35 @@
 
   html {
     @apply font-sans scroll-smooth;
+  }
+
+  .bulletpoint {
+    @apply relative pl-4 before:content-[''] before:absolute before:left-1 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-foreground;
+  }
+
+  h1 {
+    @apply text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight leading-tight;
+  }
+
+  h2 {
+    @apply text-xl sm:text-2xl lg:text-[26px] font-bold tracking-tight leading-snug py-3;
+  }
+
+  h3 {
+    @apply text-lg sm:text-xl lg:text-[22px] font-semibold leading-snug pt-2;
+  }
+  span {
+    @apply font-black text-[15px] sm:text-[16px];
+  }
+  h4 {
+    @apply text-base sm:text-lg font-semibold leading-normal pt-2;
+  }
+
+  h5 {
+    @apply text-sm sm:text-base font-semibold leading-normal;
+  }
+
+  p {
+    @apply text-sm sm:text-base leading-relaxed;
   }
 }

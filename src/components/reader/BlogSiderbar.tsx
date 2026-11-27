@@ -38,14 +38,14 @@ export const BlogSidebar = ({
       <div className="p-4 border-b border-border space-y-2.5">
         <div className="flex items-start justify-between gap-2">
           <div className="flex items-center gap-2.5 min-w-0">
-            <div className="h-8 w-8 rounded-md border border-border bg-card flex items-center justify-center overflow-hidden shrink-0">
+            <div className="relative h-8 w-8 rounded-md border border-border bg-card flex items-center justify-center overflow-hidden shrink-0">
               {blog.media.logoImage ? (
                 <Image
                   src={blog.media.logoImage}
                   alt={`${blog.name} logo`}
-                  width={22}
-                  height={22}
-                  className="object-contain"
+                  fill
+                  sizes="32px"
+                  className="h-full w-full object-cover object-center"
                 />
               ) : (
                 <span className="text-xs font-mono font-bold text-primary">
@@ -53,6 +53,7 @@ export const BlogSidebar = ({
                 </span>
               )}
             </div>
+
             <h2 className="text-xs font-semibold leading-snug truncate">
               {blog.name}
             </h2>

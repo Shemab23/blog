@@ -6,9 +6,7 @@ import { BLOG_REGISTRY, FeaturedTags } from "@/data/BlogRegistry";
 import { TUTORIAL_REGISTRY } from "@/data/TutorialRegistry";
 import { MATERIAL_REGISTRY } from "@/data/MaterialRegistry";
 
-import "@/data/notes/PythonBasics";
-import "@/data/notes/GitInternals";
-import "@/data/notes/AiEngineeringFoundations";
+import "@/data/notes/DartCourse";
 import "@/data/tutorials/pythonSetupWalkthorough";
 import "@/data/materials/cleanArchitectureNotes";
 

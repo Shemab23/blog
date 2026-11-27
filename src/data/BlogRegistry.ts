@@ -52,7 +52,7 @@ export const BLOG_REGISTRY: BlogEntry[] = [];
 export const FeaturedTags: string[] = [];
 
 // Deduplicates by UUID and normalizes optional metadata defaults
-export function registerBlog(entry: BlogEntry, tags?: string[]) {
+export function registerBlog(entry: BlogEntry) {
   const normalizedEntry: BlogEntry = {
     ...entry,
     version: entry.version ?? "v1.0",
@@ -68,14 +68,5 @@ export function registerBlog(entry: BlogEntry, tags?: string[]) {
     BLOG_REGISTRY[existingIndex] = normalizedEntry;
   } else {
     BLOG_REGISTRY.push(normalizedEntry);
-  }
-
-  const tagsToRegister = Array.isArray(tags) ? tags : entry.tags;
-  if (Array.isArray(tagsToRegister)) {
-    for (const tag of tagsToRegister) {
-      if (!FeaturedTags.includes(tag)) {
-        FeaturedTags.push(tag);
-      }
-    }
   }
 }

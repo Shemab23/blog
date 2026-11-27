@@ -158,63 +158,38 @@ export const FeaturedBlogsSection = ({
                 href={`/${blog.slug}`}
                 className="group cursor-pointer rounded-xl border border-border bg-card overflow-hidden flex flex-col justify-between hover:border-foreground/40 transition-colors"
               >
-                <div>
-                  {/* Top Media Area: Cover Image OR Subtle Initials Banner */}
-                  <div className="relative h-36 w-full bg-muted/50 border-b border-border overflow-hidden">
-                    {blog.media.coverImage ? (
+                <div className="relative h-36 w-full bg-muted/50 border-b border-border overflow-hidden">
+                  {blog.media.coverImage ? (
+                    <Image
+                      src={blog.media.coverImage}
+                      alt={blog.name}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="h-full w-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
+                    />
+                  ) : (
+                    <div className="h-full w-full flex items-center justify-center bg-gradient-to-br from-muted/80 via-muted/40 to-background">
+                      <span className="text-3xl font-mono font-bold tracking-widest text-muted-foreground/40 select-none">
+                        {blog.media.initials}
+                      </span>
+                    </div>
+                  )}
+
+                  {/* Corner Badge: Topic Logo Image OR Initials Pill */}
+                  <div className="absolute bottom-2.5 left-3 h-9 w-9 rounded-lg border border-border bg-card/95 backdrop-blur-sm shadow-sm flex items-center justify-center overflow-hidden">
+                    {blog.media.logoImage ? (
                       <Image
-                        src={blog.media.coverImage}
-                        alt={blog.name}
+                        src={blog.media.logoImage}
+                        alt={`${blog.name} icon`}
                         fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                        sizes="36px"
+                        className="h-full w-full object-cover object-center"
                       />
                     ) : (
-                      <div className="h-full w-full flex items-center justify-center bg-gradient-to-br from-muted/80 via-muted/40 to-background">
-                        <span className="text-3xl font-mono font-bold tracking-widest text-muted-foreground/40 select-none">
-                          {blog.media.initials}
-                        </span>
-                      </div>
+                      <span className="text-xs font-mono font-bold text-foreground">
+                        {blog.media.initials}
+                      </span>
                     )}
-
-                    {/* Corner Badge: Topic Logo Image OR Initials Pill */}
-                    <div className="absolute bottom-2.5 left-3 h-9 w-9 rounded-lg border border-border bg-card/95 backdrop-blur-sm shadow-sm flex items-center justify-center overflow-hidden">
-                      {blog.media.logoImage ? (
-                        <Image
-                          src={blog.media.logoImage}
-                          alt={`${blog.name} icon`}
-                          width={200}
-                          height={200}
-                          className="w-24 h-auto"
-                        />
-                      ) : (
-                        <span className="text-xs font-mono font-bold text-foreground">
-                          {blog.media.initials}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Card Body */}
-                  <div className="p-5 space-y-2.5">
-                    <div className="flex flex-wrap gap-1.5">
-                      {blog.tags?.slice(0, 3).map((tag) => (
-                        <span
-                          key={tag}
-                          className="px-2 py-0.5 rounded bg-muted text-[10px] font-mono text-muted-foreground"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-
-                    <h3 className="font-semibold text-base tracking-tight group-hover:text-primary transition-colors">
-                      {blog.name}
-                    </h3>
-
-                    <p className="text-xs text-muted-foreground line-clamp-2 leading-relaxed">
-                      {blog.summary.general}
-                    </p>
                   </div>
                 </div>
 
